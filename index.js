@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const docsRoute = require("./routes/documentos/alldocs");
+const userRoute = require("./routes/authenticacao/user");
 
 dotenv.config();
 app.use(express.json());
@@ -31,6 +32,8 @@ const Dbcon = async () => {
 Dbcon();
 
 app.use("/api/docs", docsRoute);
+app.use("/api/auth", userRoute);
+
 app.listen(process.env.PORT || 8800, () => {
   console.log("backend server is running");
 });

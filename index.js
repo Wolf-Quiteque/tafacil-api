@@ -9,7 +9,7 @@ const userRoute = require("./routes/authenticacao/user");
 
 dotenv.config();
 app.use(express.json());
-app.use(helmet());
+// app.use(helmet());
 app.use(morgan("common"));
 
 app.use(function (req, res, next) {

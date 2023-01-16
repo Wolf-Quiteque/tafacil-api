@@ -41,10 +41,14 @@ router.post("/newuser", async (req, res) => {
 router.get("/new/user/menu", async (req, res) => {
   try {
     res.status(200).json({
-   sucesso: false,
+   sucesso: true,
    retorno: {
-      texto: "Test run"
+      texto: "WHATS UPPP"
    }
+});
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.post("/new/user", async (req, res) => {

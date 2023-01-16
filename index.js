@@ -6,10 +6,6 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const docsRoute = require("./routes/documentos/alldocs");
 const userRoute = require("./routes/authenticacao/user");
-const empresaGetRoute = require("./routes/claudio/empresaGet");
-const empresaPostRoute = require("./routes/claudio/empresaPost");
-const empresaPutRoute = require("./routes/claudio/empresaPut");
-const empresaDeleteRoute = require("./routes/claudio/empresaDelete");
 
 dotenv.config();
 app.use(express.json());
@@ -37,10 +33,6 @@ Dbcon();
 
 app.use("/api/docs", docsRoute);
 app.use("/api/auth", userRoute);
-app.use("/api/claudio/get", empresaGetRoute);
-app.use("/api/claudio/post", empresaPostRoute);
-app.use("/api/claudio/put", empresaPutRoute);
-app.use("/api/claudio/delete", empresaDeleteRoute);
 
 app.listen(process.env.PORT || 8800, () => {
   console.log("backend server is running");

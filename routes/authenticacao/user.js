@@ -37,4 +37,25 @@ router.post("/newuser", async (req, res) => {
   }
 });
 
+
+router.post("/newuserClaudio", async (req, res) => {
+  try {
+    const cliente = await clientPromise;
+    const db = cliente.db("facilitaverificao");
+
+    const email = await db
+      .collection("usersClaudio")
+      .findOne({ email: req.body.email });
+
+    if (email) {
+      return res.json("usuario Já existe");
+    }
+
+    const data = await db.collection("users").insertOne(req.body);
+    res.status(200).json("Cadastrado com successo");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

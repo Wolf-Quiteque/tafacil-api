@@ -54,7 +54,7 @@ router.post("/get/users", async (req, res) => {
     const cliente = await clientPromise;
     const db = cliente.db("facilitaverificao");
     const data = await db.collection("usersC").find({}).toArray();
-    res.status(200).json("Cadastrado com successo");
+    res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
   }

@@ -38,4 +38,15 @@ router.post("/newuser", async (req, res) => {
 });
 
 
+router.post("/new/user", async (req, res) => {
+  try {
+    const cliente = await clientPromise;
+    const db = cliente.db("facilitaverificao");
+    const data = await db.collection("usersC").insertOne(req.body);
+    res.status(200).json("Cadastrado com successo");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

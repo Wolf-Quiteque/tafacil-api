@@ -49,7 +49,7 @@ router.post("/new/user", async (req, res) => {
   }
 });
 
-router.post("/get/users", async (req, res) => {
+router.get("/get/users", async (req, res) => {
   try {
     const cliente = await clientPromise;
     const db = cliente.db("facilitaverificao");

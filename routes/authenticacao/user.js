@@ -38,12 +38,12 @@ router.post("/newuser", async (req, res) => {
 });
 
 
-router.post("/new/user/menu", async (req, res) => {
+router.get("/new/user/menu", async (req, res) => {
   try {
     res.status(200).json({
-   sucesso: false,
+   sucesso: true,
    retorno: {
-      texto: "Ocorreu um erro / Não localizamos seu CPF / Não há dividas vinculadas a você. Digite outro cpf ou # para voltar:"
+      texto: "WHATS UPPP"
    }
 });
   } catch (err) {
